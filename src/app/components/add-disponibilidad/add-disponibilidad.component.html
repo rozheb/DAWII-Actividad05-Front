@@ -1,0 +1,50 @@
+<div>
+    <form class="content" (submit)="registraDisponibilidad()">
+        <div class="submit-form">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h6>Registro de Disponibilidad </h6>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="horaInicio">Hora de inicio</label>
+                    <input type="datetime" class="form-control" name="horaInicio" id="horaInicio" [(ngModel)]="disponibilidad.horaInicio" />
+                </div>
+                <div class="col-lg-3">
+                    <label for="horaFin">Hora de Fin</label>
+                    <input type="datetime" class="form-control" name="horaFin" id="horaFin"[(ngModel)]="disponibilidad.horaFin" />
+                </div>
+                <div class="col-lg-3">
+                    <label for="dia">Dia</label>
+                    <input type="text" class="form-control" name="dia" id="dia" [(ngModel)]="disponibilidad.dia"/>
+                </div>
+            </div>
+                <div class="col-lg-3">
+                    <label for="ciclo">Ciclo</label>
+                    <select id="ciclo" name="ciclo" class="form-control" [(ngModel)]="disponibilidad.ciclo!.idCiclo">
+                        <option value="0"> [Seleccione] </option>
+                        <option *ngFor="let ciclo of listaCiclo" value="{{ciclo.idCiclo}}" >
+                            {{ciclo.nombre}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="usuario">Usuario</label>
+                    <select id="usuario" name="usuario" class="form-control" [(ngModel)]="disponibilidad.usuario!.idUsuario">
+                        <option value="0"> [Seleccione] </option>
+                        <option *ngFor="let usuario of listaUsuario" value="{{usuario.idUsuario}}" >
+                            {{usuario.nombres}}
+                        </option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-12">
+                    <button class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+    </form>
+</div>
